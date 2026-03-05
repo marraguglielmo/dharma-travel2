@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Dharma - Filosofia e Cammino</title>
-<!-- Fonts -->
+<!-- Google Fonts: Noto Serif -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 <!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -19,20 +19,66 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#6e2a92",
-                        "background-light": "#f7f6f8",
-                        "background-dark": "#1b131f",
+                        "primary": "#faba60e0",
+                        "background-primary": "#faba60e0",
+                        "background-light": "#faba60e0",
+                        "background-dark": "#1c1c1e",
+                        "stone-text": "#44403c",
+                        "stone-border": "#d6d3d1",
                     },
                     fontFamily: {
-                        "display": ["Newsreader", "serif"],
-                        "sans": ["Noto Sans", "sans-serif"]
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
                     },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    borderRadius: {
+                        "DEFAULT": "0.5rem", 
+                        "lg": "1rem", 
+                        "xl": "1.5rem", 
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
                 },
             },
         }
     </script>
 <style>
+        /* Custom utilities for vertical text and smooth scrolling */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+        
+        body {
+            scroll-behavior: smooth;
+        }
+        .hero-section{
+            width: 95vw !important;
+            border-radius: 50px;
+        }
+
+        .text-white-on-red {
+            color: white;
+        }
+
+        .fixed-bg{
+            position: fixed !important;
+            top: 0 !important;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(img/1\ 5.jpg);
+            background-size: cover;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .fixed-bg{
+                background-image: url(img/2\ 6.jpg);
+            }
+        }
+        #menu-panel{
+            background-color: #8c704b9c;
+        }
+
         /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
@@ -55,7 +101,9 @@
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="font-display text-white dark:text-white antialiased selection:bg-primary">
+
+    <div class="fixed-bg"></div>
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 <!-- Navigation -->
 <nav id="main-nav" class="w-full px-6 md:px-12 py-8 flex items-center justify-between z-50 bg-transparent transition-all duration-500 transform translate-y-0">
@@ -67,15 +115,15 @@
 </div>
 <!-- Center: Links (Desktop) -->
 <div class="hidden md:flex items-center gap-12">
-<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="index.html">dharma</a>
-<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="details.html">journeys</a>
-<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="magazine.html">journal</a>
-<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300" href="contacts.html">contacts</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300 text-white" href="index.html">dharma</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300 text-white" href="details.html">journeys</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300 text-white" href="magazine.html">journal</a>
+<a class="text-sm tracking-widest uppercase hover:text-primary transition-colors duration-300 text-white" href="contacts.html">contacts</a>
 </div>
 <!-- Right: Action -->
 <div class="flex items-center gap-6">
-<button id="burger-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
-<span class="material-symbols-outlined text-xl">menu</span>
+<button id="burger-menu" class="p-2 rounded-full hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-xl text-white">menu</span>
 </button>
 </div>
 </nav>
@@ -85,47 +133,47 @@
 <!-- Overlay -->
 <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="menu-overlay"></div>
 <!-- Menu Panel -->
-<div class="absolute right-0 top-0 h-full w-80 bg-[#f7f6f8] dark:bg-[#1b131f] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out" id="menu-panel">
+<div class="absolute right-0 top-0 h-full w-80 bg-[#8c704b9c] shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out" id="menu-panel">
 <div class="h-full flex flex-col p-8">
 <!-- Header -->
 <div class="flex items-center justify-between mb-12">
 <div class="flex items-center gap-2">
-<img src="img/Logo Dharma Travel.png" alt="Dharma Travel Logo" class="h-14 w-auto">
+<img src="img/Logo Dharma Travel.png" alt="Dharma Travel Logo" class="h-15 w-auto">
 </div>
-<button id="close-menu" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors">
-<span class="material-symbols-outlined text-xl">close</span>
+<button id="close-menu" class="p-2 rounded-full hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-xl text-white">close</span>
 </button>
 </div>
 <!-- Navigation Links -->
 <nav class="flex-1 flex flex-col gap-6">
-<a href="index.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<a href="index.html" class="group flex items-center justify-between py-2 border-b border-white/20">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">home</span>
-<span class="text-base tracking-widest uppercase">Home</span>
+<span class="material-symbols-outlined text-white">home</span>
+<span class="text-base tracking-widest uppercase text-white">Home</span>
 </div>
 </a>
-<a href="details.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<a href="details.html" class="group flex items-center justify-between py-2 border-b border-white/20">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">explore</span>
-<span class="text-base tracking-widest uppercase">Journeys</span>
+<span class="material-symbols-outlined text-white">explore</span>
+<span class="text-base tracking-widest uppercase text-white">Journeys</span>
 </div>
 </a>
-<a href="magazine.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<a href="magazine.html" class="group flex items-center justify-between py-2 border-b border-white/20">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">auto_stories</span>
-<span class="text-base tracking-widest uppercase">Journal</span>
+<span class="material-symbols-outlined text-white">auto_stories</span>
+<span class="text-base tracking-widest uppercase text-white">Journal</span>
 </div>
 </a>
-<a href="contacts.html" class="group flex items-center justify-between py-2 border-b border-gray-200 dark:border-gray-800">
+<a href="contacts.html" class="group flex items-center justify-between py-2 border-b border-white/20">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">mail</span>
-<span class="text-base tracking-widest uppercase">Contatti</span>
+<span class="material-symbols-outlined text-white">mail</span>
+<span class="text-base tracking-widest uppercase text-white">Contatti</span>
 </div>
 </a>
 </nav>
 <!-- Footer -->
-<div class="mt-auto pt-8 border-t border-gray-200 dark:border-gray-800">
-<p class="text-xs text-gray-500 italic">Filosofia e cammino spirituale</p>
+<div class="mt-auto pt-8 border-t border-white/20">
+<p class="text-xs text-white/60 italic">Viaggio consapevole per l'anima</p>
 </div>
 </div>
 </div>
@@ -133,15 +181,15 @@
 
 <main class="flex-grow flex flex-col items-center w-full">
 <!-- Hero Section: Immersive Wide -->
-<section class="w-full relative h-[70vh] min-h-[500px] overflow-hidden group">
+<section class="hero-section w-full relative h-[80vh] w-[80] min-h-[500px] overflow-hidden group">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] ease-in-out group-hover:scale-105" data-alt="Ancient temple in misty forest" style='background-image: url("https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80");'></div>
 <!-- Gradient Overlay -->
-<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background-light dark:to-background-dark"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent"></div>
 <div class="absolute bottom-0 left-0 right-0 p-8 md:p-20 flex flex-col items-center text-center">
-<h1 class="text-4xl md:text-6xl font-medium tracking-tight text-slate-900 dark:text-white mb-4 drop-shadow-sm">
+<h1 class="text-4xl md:text-6xl font-medium tracking-tight text-white mb-4 drop-shadow-sm">
                         Kyoto: Il Cammino del Silenzio
                     </h1>
-<p class="text-sm md:text-base uppercase tracking-[0.2em] opacity-80 font-sans text-slate-800 dark:text-slate-200">
+<p class="text-sm md:text-base uppercase tracking-[0.2em] opacity-80 font-sans text-white">
                         Giappone
                     </p>
 </div>
@@ -152,16 +200,16 @@
 <section class="flex flex-col gap-8">
 <div class="flex flex-col items-center">
 <span class="material-symbols-outlined text-primary mb-4 text-3xl opacity-80">self_improvement</span>
-<h2 class="text-3xl font-bold text-center mb-8">Filosofia</h2>
+<h2 class="text-3xl font-bold text-center mb-8 text-white">Filosofia</h2>
 </div>
-<article class="prose prose-lg prose-slate dark:prose-invert font-display text-lg md:text-xl leading-relaxed text-justify opacity-90">
-<p>
+<article class="prose prose-lg font-display text-lg md:text-xl leading-relaxed text-justify opacity-90">
+<p class="text-white">
 <span class="float-left text-6xl text-primary font-bold mr-3 mt-[-10px] leading-[0.8]">P</span>rima di camminare, respiriamo. Questo viaggio non riguarda solo vedere l'antica capitale, ma sperimentare la quiete che si nasconde tra i templi. Ti invitiamo a rallentare, ad ascoltare il rumore della ghiaia sotto i piedi, e a trovare il silenzio dentro di te.
                         </p>
-<p class="mt-6">
+<p class="mt-6 text-white">
                             Il nostro percorso attraverso Kyoto evita le folle, cercando invece i giardini nascosti e le ore tranquille del mattino. È una pratica di presenza, guidata dai principi dello Zen. In un mondo di rumore costante, ti offriamo il lusso di ascoltare — al vento nel bambù, al canto dei monaci, e in ultima analisi, al tuo stesso cuore.
                         </p>
-<p class="mt-6">
+<p class="mt-6 text-white">
                             Il vero viaggio trasforma il viaggiatore. Eliminando l'essenziale, facciamo spazio alla chiarezza. Questo è il sentiero del Dharma: minimale, intenzionale, e profondamente radicato nello spirito del luogo.
                         </p>
 </article>
@@ -170,15 +218,15 @@
 <section class="flex flex-col gap-10 mt-12">
 <div class="flex flex-col items-center mb-6">
 <span class="material-symbols-outlined text-primary mb-4 text-3xl opacity-80">route</span>
-<h2 class="text-3xl font-bold text-center">Il Cammino</h2>
+<h2 class="text-3xl font-bold text-center text-white">Il Cammino</h2>
 </div>
 <div class="relative pl-4 border-l border-primary/20 dark:border-primary/40 space-y-16 py-4">
 <!-- Day 1 -->
 <div class="relative pl-8 group">
 <div class="absolute -left-[21px] top-1 size-3 rounded-full bg-background-light dark:bg-background-dark border-2 border-primary group-hover:bg-primary transition-colors"></div>
 <span class="text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-sans">Giorno 1</span>
-<h3 class="text-2xl font-bold mb-3">Arrivo &amp; Grounding</h3>
-<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+<h3 class="text-2xl font-bold mb-3 text-white">Arrivo &amp; Grounding</h3>
+<p class="text-base text-white/80 leading-relaxed">
                                 Ci riuniamo nel quartiere di Higashiyama al crepuscolo. Una cena kaiseki tradizionale introduce i sapori della stagione, seguita da una meditazione guidata per lasciare il mondo alle spalle.
                             </p>
 </div>
@@ -186,8 +234,8 @@
 <div class="relative pl-8 group">
 <div class="absolute -left-[21px] top-1 size-3 rounded-full bg-background-light dark:bg-background-dark border-2 border-primary group-hover:bg-primary transition-colors"></div>
 <span class="text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-sans">Giorno 2</span>
-<h3 class="text-2xl font-bold mb-3">Zazen Mattutino</h3>
-<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+<h3 class="text-2xl font-bold mb-3 text-white">Zazen Mattutino</h3>
+<p class="text-base text-white/80 leading-relaxed">
                                 Prima che la città si svegli, entriamo in un sotto-tempio privato per la meditazione Zazen guidata dall'Abate. Il mattino viene trascorso nel silenzio, camminando lungo il Sentiero dei Filosofi.
                             </p>
 </div>
@@ -195,8 +243,8 @@
 <div class="relative pl-8 group">
 <div class="absolute -left-[21px] top-1 size-3 rounded-full bg-background-light dark:bg-background-dark border-2 border-primary group-hover:bg-primary transition-colors"></div>
 <span class="text-xs font-bold uppercase tracking-widest text-primary mb-2 block font-sans">Giorno 3</span>
-<h3 class="text-2xl font-bold mb-3">La Via del Tè</h3>
-<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+<h3 class="text-2xl font-bold mb-3 text-white">La Via del Tè</h3>
+<p class="text-base text-white/80 leading-relaxed">
                                 Una cerimonia privata in una casa da tè nel giardino di muschio. Impariamo che la preparazione del tè è uno specchio della mente — precisa, fluida e presente.
                             </p>
 </div>
@@ -206,7 +254,7 @@
 <section class="w-full mt-12">
 <div class="flex flex-col items-center mb-10">
 <span class="material-symbols-outlined text-primary mb-4 text-3xl opacity-80">photo_camera</span>
-<h2 class="text-3xl font-bold text-center">Meditazione Visiva</h2>
+<h2 class="text-3xl font-bold text-center text-white">Meditazione Visiva</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
 <div class="overflow-hidden rounded-lg aspect-[4/3] bg-gray-100 dark:bg-gray-800">
@@ -225,7 +273,7 @@
 </section>
 <!-- CTA Section -->
 <section class="flex flex-col items-center justify-center py-20 mt-8">
-<p class="text-lg text-slate-500 dark:text-slate-400 mb-6 italic text-center">
+<p class="text-lg text-white/70 mb-6 italic text-center">
                         "Il viaggio di mille miglia inizia con un singolo passo."
                     </p>
 <a class="group relative inline-flex items-center justify-center text-xl font-bold text-primary tracking-wide" href="#">
@@ -237,17 +285,17 @@
 </div>
 </main>
 <!-- Minimal Footer -->
-<footer class="w-full py-8 border-t border-slate-100 dark:border-white/5 mt-auto">
+<footer class="w-full py-8 border-t border-white/20 mt-auto">
 <div class="flex flex-col items-center justify-center gap-4">
 <div class="text-primary opacity-50">
 <span class="material-symbols-outlined text-2xl">temple_buddhist</span>
 </div>
-<div class="flex gap-6 text-xs text-slate-400 uppercase tracking-widest font-sans">
+<div class="flex gap-6 text-xs text-white/60 uppercase tracking-widest font-sans">
 <a class="hover:text-primary transition-colors" href="#">Privacy</a>
 <a class="hover:text-primary transition-colors" href="#">Termini</a>
 <a class="hover:text-primary transition-colors" href="#">Contatti</a>
 </div>
-<p class="text-[10px] text-slate-300 dark:text-slate-600 font-sans">© 2024 Dharma. Tutti i diritti riservati.</p>
+<p class="text-[10px] text-white/40 font-sans">© 2024 Dharma. Tutti i diritti riservati.</p>
 </div>
 </footer>
 </div>
@@ -300,20 +348,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const navHeight = nav.offsetHeight;
     
-    function updateNav() {
+function updateNav() {
         const currentScroll = window.pageYOffset;
         
         if (currentScroll > 150) {
             if (!wasFixed) {
                 body.style.paddingTop = navHeight + 'px';
                 nav.classList.remove('bg-transparent', 'py-8');
-                nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'backdrop-blur-md', 'shadow-lg', 'py-4');
                 wasFixed = true;
             }
         } else {
             if (wasFixed) {
                 body.style.paddingTop = '0';
-                nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'bg-background-light/95', 'dark:bg-background-dark/95', 'backdrop-blur-md', 'shadow-lg', 'py-4');
+                nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'backdrop-blur-md', 'shadow-lg', 'py-4');
                 nav.classList.add('bg-transparent', 'py-8');
                 wasFixed = false;
             }
